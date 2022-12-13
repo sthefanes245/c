@@ -1,0 +1,113 @@
+#include <stdio.h>
+
+typedef struct tfuncionario {
+    char nome[30];
+    int cpf;
+    int cargo;
+    float salario;
+}funcionario;
+
+void cadastrar(funcionario *f)
+{
+    printf("<----Cadastrar---->\n");
+    printf("Nome....\n");
+    scanf("%s", &f->nome);
+    printf("CPF....\n");
+    scanf("%s", &f->cpf);
+    printf("Cargo....\n");
+    scanf("%s", &f->cargo);
+    printf("Salario....\n");
+    scanf("%s", &f->salario);
+
+}
+void exibir(funcionario f)
+{
+    printf("Nome...: %s \n", f.nome);
+    printf("CPF...: %s \n", f.cpf);
+    printf("Cargo...: %s \n", f.cargo);
+    printf("Salario...: %s \n", f.salario);
+}
+
+int procurar(funcionario vedt[],  int qtd, int cpf)
+{
+    int res = -1;
+    for(int i = 0; i < qtd; i++)
+    {
+        if(vet[i].cpf == cpf)
+        {
+            res = i;
+            break;
+        }
+    }
+    return res;
+}
+
+
+int main()
+{
+    const limite = 200;
+    int qtd_fun, op, pos, cpf;
+    funcionario vet_fun[limite];
+
+    qtd_fun = 0;
+
+    do
+    {
+        printf("---Menu--- \n");
+        printf("1-Cadastrar \n");
+        printf("2-Exibir \n");
+        printf("3-Alterar/Atualizar \n");
+        printf("4-Excluir \n");
+        printf("5-Consultar \n");
+        printf("6-Sair \n");
+        printf("Escolha uma opcao \n");
+        scanf("%d", &op);
+
+    system("cls");
+
+    switch(op)
+    {
+        case 1:
+            cadastrar(&vet_fun[qtd_fun]);
+            qtd_fun++;
+        break;
+
+        case 2:
+            printf("<----Exibir---->\n");
+            for(int i=0; i<qtd_fun; i++)
+            printf("Nome: %s \n", vet_fun[i].nome);
+            system("pause");
+        break;
+
+        case 3:
+            printf("<----Alterar---->\n");
+            printf("CPF....\n");
+            scanf("%s", &f->cpf);
+            pos = procurar(vet_fun, qtd_fun, cpf);
+            if(pos == -1)
+            {
+                printf("CPF nao encontrado \n");
+                system("pause");
+            }
+            else
+            {
+                cadastrar(vet_fun[pos]);
+            }
+
+        break;
+        case 4:
+        printf("\n");
+        break;
+        case 5:
+        printf("\n");
+        break;
+        case 6:
+        printf("\n");
+        break;
+    }
+
+
+
+    }while(op != 0);
+    return 0;
+}
